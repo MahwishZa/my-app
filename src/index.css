@@ -1,0 +1,228 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.app-container {
+  padding: 32px 0;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.task-list-container {
+  background: #fff;
+  padding: 32px 28px 28px 28px;
+  border-radius: 18px;
+  margin-top: 48px;
+  box-shadow: 0 6px 32px rgba(80, 120, 200, 0.12), 0 1.5px 6px rgba(80, 120, 200, 0.08);
+  transition: box-shadow 0.2s;
+}
+
+.task-list-container:hover {
+  box-shadow: 0 10px 40px rgba(80, 120, 200, 0.18), 0 2px 8px rgba(80, 120, 200, 0.10);
+}
+
+.task-list-container h1 {
+  text-align: center;
+  color: #3a4a6b;
+  margin-bottom: 28px;
+  letter-spacing: 1px;
+}
+
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid #b6c6e3;
+  border-radius: 7px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  background: #f7faff;
+}
+
+.task-form input:focus {
+  border: 1.5px solid #5b8def;
+  background: #f0f6ff;
+}
+
+.task-form button {
+  background: linear-gradient(90deg, #5b8def 60%, #6ed0f6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(91, 141, 239, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.task-form button:hover {
+  background: linear-gradient(90deg, #4a7edb 60%, #5bc6e7 100%);
+  box-shadow: 0 4px 16px rgba(91, 141, 239, 0.13);
+}
+
+.clear-btn {
+  background: #f7faff;
+  color: #5b8def;
+  border: 1.5px solid #b6c6e3;
+  border-radius: 7px;
+  padding: 8px 16px;
+  font-size: 0.98rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 18px;
+  margin-left: 2px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.clear-btn:hover {
+  background: #eaf2fb;
+  color: #3a4a6b;
+  border: 1.5px solid #5b8def;
+}
+
+.task-items {
+  margin-top: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  background: #f7faff;
+  border-radius: 7px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 4px rgba(80, 120, 200, 0.06);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.task-item.completed {
+  opacity: 0.7;
+  background: #e3eaf6;
+}
+
+.task-item input[type="checkbox"] {
+  accent-color: #5b8def;
+  width: 18px;
+  height: 18px;
+}
+
+.task-item span {
+  flex: 1;
+  font-size: 1.05rem;
+  color: #3a4a6b;
+  word-break: break-word;
+}
+
+.task-item.completed span {
+  text-decoration: line-through;
+  color: #7a8ca7;
+}
+
+.task-item input[type="text"] {
+  flex: 1;
+  padding: 7px 10px;
+  border: 1.5px solid #b6c6e3;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  background: #fff;
+  transition: border 0.2s;
+}
+
+.task-item input[type="text"]:focus {
+  border: 1.5px solid #5b8def;
+  background: #f0f6ff;
+}
+
+.task-item button {
+  background: #fff;
+  color: #5b8def;
+  border: 1.5px solid #b6c6e3;
+  border-radius: 5px;
+  padding: 6px 14px;
+  font-size: 0.97rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.task-item button:hover {
+  background: #eaf2fb;
+  color: #3a4a6b;
+  border: 1.5px solid #5b8def;
+}
+
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #5b8def;
+  color: #fff;
+  padding: 14px 32px 14px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(91, 141, 239, 0.18);
+  font-size: 1.05rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: fadeIn 0.3s;
+}
+.toast button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 8px;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px) translateX(-50%); }
+  to { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
+.task-anim-wrapper {
+  transition: opacity 0.4s, transform 0.4s;
+  opacity: 1;
+  transform: translateY(0);
+}
+.task-anim-wrapper.animating {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    padding: 10px 0;
+    max-width: 100vw;
+  }
+
+  .task-list-container {
+    padding: 18px 6px 16px 6px;
+    margin-top: 18px;
+  }
+
+  .task-item {
+    padding: 7px 6px;
+    gap: 7px;
+  }
+
+  .task-form button,
+  .clear-btn {
+    padding: 8px 8px;
+    font-size: 0.95rem;
+  }
+}
