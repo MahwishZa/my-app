@@ -59,8 +59,5 @@ To create a production build:
 npm run build
 ```
 
-## 📄 License
+## License
 MIT
-
-
-**Made with ❤️ using React.js**
